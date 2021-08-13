@@ -3,6 +3,7 @@ import 'package:e_commerce/constants.dart';
 import 'package:e_commerce/screens/cart_page.dart';
 import 'package:e_commerce/services/firebase_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomActionBar extends StatelessWidget {
@@ -24,7 +25,10 @@ class CustomActionBar extends StatelessWidget {
 
     CollectionReference _userReference = FirebaseFirestore.instance.collection('Users');
 
+
+
     return Container(
+
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -52,6 +56,8 @@ class CustomActionBar extends StatelessWidget {
               ),
             child: Image(image: AssetImage('assets/images/backarrow.png'),color: Colors.white,),),
           ),
+          //DrawerTab(),
+
           if(_hastitle)
           Text(title!, style: Constants.boldHeading,),
           GestureDetector(
@@ -61,8 +67,8 @@ class CustomActionBar extends StatelessWidget {
               }));
             },
             child: Container(
-                width: 42.0,
-                height: 42.0,
+                width: 50.0,
+                height: 50.0,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: Colors.black,
@@ -77,7 +83,23 @@ class CustomActionBar extends StatelessWidget {
                       _totalItems = _documents.length;
 
                     }
-                        return Text('$_totalItems', style: TextStyle(fontSize:18.0, fontWeight: FontWeight.w600, color: Colors.amber.shade200 ),);
+                        return Container(
+                            child: Stack(
+                              children: [
+                                Container(
+                                  margin: const EdgeInsets.only(left: 30.0, right: 0.0, top: 3.0),
+                                  decoration: BoxDecoration(
+                                    //color: Colors.amber,
+                                    borderRadius: BorderRadius.circular(100.0),
+                                  ),
+                                  child: Text('$_totalItems', style: TextStyle(fontSize:18.0, fontWeight: FontWeight.w600, color: Colors.amber ),),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 10.0, top: 10.0),
+                                  child: IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart), color: Colors.amber[800], iconSize: 20.0,),
+                                ),
+                              ],
+                            ));
                     },
                  ),
             ),

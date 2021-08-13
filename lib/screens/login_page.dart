@@ -9,8 +9,6 @@ import '../constants.dart';
 class LoginPage extends StatefulWidget {
   //const LoadingPage({Key key}) : super(key: key);
 
-
-
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -70,9 +68,6 @@ class _LoginPageState extends State<LoginPage> {
         hereLoading = false;
       });
     }
-    /*else{
-      Navigator.pop(context);
-    }*/
   }
 
     @override
@@ -122,7 +117,6 @@ class _LoginPageState extends State<LoginPage> {
                   CustomTextInput(hint: 'Password',
                     onSubmitted: (value) {
                       _SubmitForm();
-
                     },
                     onChanged: (value) {
                       _signinpassword = value;

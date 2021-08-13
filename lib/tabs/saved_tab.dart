@@ -1,5 +1,4 @@
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/services/firebase_services.dart';
 import 'package:e_commerce/tabs/product_tab.dart';
@@ -17,7 +16,7 @@ class SavedTab extends StatelessWidget {
     return Container(
       child: Stack(
           children:[
-            CustomActionBar(title: 'Saved items', hasbackArrow: false,hastitle: true),
+            CustomActionBar(title: 'Saved items', hasbackArrow: true,hastitle: true),
             
             FutureBuilder<QuerySnapshot>(
                 future: _firebaseServices.userReference.doc(_firebaseServices.getUserId()).collection('Saved').get(),
@@ -56,11 +55,9 @@ class SavedTab extends StatelessWidget {
                                       startAngle: 0.0,
                                       endAngle: pi * 2,
                                       colors: <Color>[
-                                        Colors.black12, // blue
-
-                                        Color(0xFFFBBC05), // yellow
-
-                                        Colors.black, // blue again to seamlessly transition to the start
+                                        Colors.black12,
+                                        Color(0xFFFBBC05),
+                                        Colors.black,
                                       ],
                                       stops: <double>[0.0,  0.5,  1.0],),),
                                     child: Row(
@@ -79,7 +76,7 @@ class SavedTab extends StatelessWidget {
                                             child: Text('${_productMap['title']}', style: TextStyle(fontWeight: FontWeight.w600, fontSize: 18.0),)),
                                         Container(
                                           child: Text('Rs. ${_productMap['price']}', style: TextStyle(fontSize: 20.0, color: Colors.red, fontWeight: FontWeight.w600, ),),
-                                          height: 50.0,
+                                          height: 55.0,
                                           width: 80.0,
                                         )
                                       ],
@@ -97,7 +94,6 @@ class SavedTab extends StatelessWidget {
                                           child: Center(child: CircularProgressIndicator(color: Colors.yellow[700],))),
                                     ),
                                   );
-
                               },
                             )
                         );

@@ -1,7 +1,6 @@
 import 'dart:math';
-
+import 'package:e_commerce/services/firebase_services.dart';
 import 'package:e_commerce/tabs/product_tab.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:e_commerce/widgets/custom_actionbar.dart';
@@ -9,17 +8,19 @@ import 'package:flutter/material.dart';
 
 class HomeTab extends StatelessWidget {
   //const HomeTab({Key key}) : super(key: key);
-  
-  CollectionReference _productReference = FirebaseFirestore.instance.collection('menu');
+
+  FirebaseServices _firebaseServices = FirebaseServices();
+
 
   @override
+
   Widget build(BuildContext context) {
     return Container(
       color: Colors.amber.shade200,
       child: Stack(
         children:[
           FutureBuilder<QuerySnapshot>(
-           future: _productReference.get(),
+           future: _firebaseServices.productReference.get(),
              builder: (context, snapshot) {
                if(snapshot.hasError){
                  return Scaffold(
@@ -35,7 +36,7 @@ class HomeTab extends StatelessWidget {
                        return GestureDetector(
                          onTap: () {
                            Navigator.push(context, MaterialPageRoute(builder: (context){
-                            return ProductTab(documentID: document.id);
+                            return ProductTab(documentID: document.id,);
                            }));
                          },
                          child: Stack(

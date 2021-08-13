@@ -12,8 +12,9 @@ import '../constants.dart';
 class ProductTab extends StatefulWidget {
   //const ProductTab({Key key}) : super(key: key);
   final String? documentID;
+  final bool? saved;
 
-  ProductTab({this.documentID});
+  ProductTab({this.documentID, this.saved});
 
 
 
@@ -90,7 +91,7 @@ class _ProductTabState extends State<ProductTab> {
                              },
                              child: Container(
                                margin: EdgeInsets.only(right: 10.0),
-                               decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.0), color: color1,),
+                               decoration: BoxDecoration(borderRadius: BorderRadius.circular(12.0), color:  color1,),
                                height: 60.0,
                                child: Image(
                                  image: AssetImage('assets/images/bookmark.png'),

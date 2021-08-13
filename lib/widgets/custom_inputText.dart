@@ -23,7 +23,7 @@ class CustomTextInput extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12.0),
         color: Colors.black38),
-      padding: EdgeInsets.symmetric(vertical: 14.0, horizontal: 18.0),
+      padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 18.0),
       child: TextField(
         onChanged: onChanged,
         onSubmitted: onSubmitted,

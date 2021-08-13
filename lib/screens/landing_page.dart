@@ -4,6 +4,7 @@ import 'package:e_commerce/screens/login_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:shimmer/shimmer.dart';
 
 class LandingPage extends StatefulWidget {
   //const LandingPage({Key key}) : super(key: key);
@@ -52,16 +53,24 @@ class _LandingPageState extends State<LandingPage> {
                   }
 
                   return Scaffold(
+                    backgroundColor: Colors.amber.shade200,
                     body: Center(
-                      child: Text('Checking Authentication', style: Constants.regularHeading),
+                      child: Shimmer.fromColors(
+                        baseColor: Colors.amber.shade200,
+                          highlightColor: Colors.black12,
+                          child: Text('Checking Authentication', style: Constants.regularHeading)),
                     ),
                   );
                 });
           }
           // connecting to firebase - Loading
           return Scaffold(
+            backgroundColor: Colors.amber.shade200,
             body: Center(
-              child: Text('Initializing App....', style: Constants.regularHeading),
+              child: Shimmer.fromColors(
+                  baseColor: Colors.amber.shade200,
+                  highlightColor: Colors.black12,
+                  child: Text('Initializing App', style: Constants.regularHeading)),
             ),
           );
         }

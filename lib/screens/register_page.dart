@@ -1,4 +1,3 @@
-import 'package:e_commerce/screens/login_page.dart';
 import 'package:e_commerce/widgets/customBtn.dart';
 import 'package:e_commerce/widgets/custom_inputText.dart';
 import 'package:flutter/material.dart';
